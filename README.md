@@ -26,6 +26,18 @@ Features of the software:
 * Separate setup page with WiFi configuration, default track speed and firmware maintenance
 * Possibility to use for timelaps videos
 
+The software is still under development, and much more documentation is needed.
+
+I hope to update the respository with:
+* Schematics for connecting the components
+* Pointers to buying the needed components
+* Information on connecting the step motor to the gears of the tripod
+* Screenshots and pictures
+
+The tracker currently seem to make it possible to take 60 second long expsures, using a 300mm lens.
+
+The intervalometer has only been tested with a Nikon D7100 camera.
+
 
 # Development
 
