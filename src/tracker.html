@@ -1,0 +1,96 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="http://tracker.local/def.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tracker control</title>
+  </head>
+  <style>
+    #boxes {
+	background-color: #F0F0F0;
+	margin: auto;
+        width: 80%;
+	border: 1px solid lightgrey;
+	padding: 2%;
+    }
+    .center {
+	text-align: center;
+	margin: 0 auto;
+    }
+    .speed-button {
+	background-color: #EBEBEB;
+    }
+    #Progress {
+	width: 80%;
+	background-color: lightgrey;
+	margin: auto;
+    }
+    #Bar {
+	width: 1%;
+	height: 20px;
+	background-color: green;
+    }
+    #PictureProgress {
+	width: 80%;
+	background-color: lightgrey;
+	margin: auto;
+    }
+    #PictureBar {
+	width: 1%;
+	height: 10px;
+	background-color: green;
+    }
+    #tracking {
+	background-color: gray;
+	color: white;
+	margin: auto;
+	border: 5px;
+	padding: 10px;
+    }
+    #center {
+	text-align: center;
+    }
+  </style>
+  <body>
+    <div class="row" id="boxes">
+      <div class="center"><b>Intervalometer</b></div>
+      <a href="setup.html"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAACzklEQVRoge2asWpUQRSGv2SDIAi6MVuoKBbayOYljPoGNmohRBCNEasUbvAFUhhFbEwgKYIgvkF8AUEs1nQRdiMkFilWK4kaYjFz1+ty750zM2f3Jpgfhiyzc875/5uZM3PmLhyiXAwp+xsGbgBncr7fBFaAPeW4ariFIVfUbmoGHNZ0BlwQjLmoGVBbwMDhI6AGLAMLQLUPXKrAIrBkY6miBjT5O48/kC3iGe41MJ9hV7U+kzFNFEX0ks8TUQO2BAI2gbGU3WgPeVUReeST1gaeAA1gQ0A+bdewtkV2USJc5AfVgkUs7wPySVvKI1mUhX77Ku4jfoUY9WaGslpexhPhOPC+RPIfMVkqClVM1hg0+RaCJy/ZiTuYHVKKNeARUAeO2Va3fWsefhZtbBXM4n5iO8B9ih9KBXhgx7r8NbTI13BPoR3gsofPCdwi2gjyf7qgySpGTgPXgVMOP1PASxn3LqaB544xX4E39m+C3KJIUoxktU+YqeGLCmZNhMTsFkXp+SopRrLwCtgNsNvFLzmk0S2KNAqadxG2q7HBNQR8ibDdiA2uISDmZiP6VkRDwNkI23OxwTUEXI2wvRYbPC3gc6CPO4Sn0cnAmOvJh5FUZ7I5jKf6juLeyOrAPeCFJ4kp4JJjzBbwFviR6msCr30CjSE7Skx4+LwC/HT4bPFv8R8F6WFumuLpVAEeCsiLD3Mj7iGALN0dwZxt7mJ22FXMfw7gPGbBTuKeNj4xRRilnIKmjcIN4AnKLylPhpI/8EX94j4gn7SFPJJFO7F0gQ8CQVwO/NWiREQLk68f289SUi1rM0txhuvrDbXW9XpesujrO4K8zDAvEPA0wy74BYd0cWxjzjpzmIvWGbIvnb4JfH3P6OtgjuVzmOPGjI3phM/q3gZue4z3RQdzNPfCf/WWUgJJUbTuHiKH9k8NhjC3e+M53yfFyJ5y3EOUhj/kYnwIPV9X4wAAAABJRU5ErkJggg==" width="20" height="20"></a>
+      <div class="row">ExpTime:<input id="exptime" type="number" step="0.1" name="exptime"></div>
+      <div class="row">WaitTime:<input id="waittime" type="number" step="0.1" name="waittime"></div>
+      <div class="row">NumPics:<input id="reps" type="number" name="reps"></div>
+      <div class="finish">
+	Finish at: N/A
+      </div>
+      <p></p>
+      <div class="status">
+	Status: N/A
+      </div>
+      <div id="Progress">
+	<div id="Bar"></div>
+	<div id="ProgressStatus"></div>
+      </div><br>
+      <div id="PictureProgress">
+	<div id="PictureBar"></div>
+	<div id="ProgressStatus"></div>
+      </div>
+      <div class="row">
+	<div class="column">
+	  <button type="button" id="start">Start</button>
+	</div>
+	<div class="column">
+	  <button type="button" id="stop">Stop</button>
+	</div>
+      </div>
+    </div>
+    <p></p>
+    <div class="row" id="boxes">
+      <div class="center"><b>Tracker control</b></div>
+      <div class="row">TrackSpd:<input id="speed" type="number" step="0.00000001" name="speed"></div>
+      <button type="button" value="on" id="speedButton">Set speed</button>
+      <div id="tracking">Stopped</div>
+    </div>
+    <p></p>
+    <script src="http://tracker.local/status.js"></script>
+  </body>
+</html>
+
+

@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tracker control - setup</title>
+  </head>
+  <style>
+    #boxes {
+	    background-color: #F0F0F0;
+	    margin: auto;
+      width: 80%;
+	    border: 1px solid lightgrey;
+	    padding: 2%;
+    }
+    .center {
+	    text-align: center;
+	    margin: 0 auto;
+      width: 100%;
+    }
+    #center {
+	    text-align: center;
+    }
+    .row {
+      width: 100%;
+    }
+    input {
+      display: table-cell;
+    }
+      </style>
+  <body>
+    <div class="row" id="boxes">
+      <div class="center"><b>WiFi</b></div>
+      <table>
+        <tr>
+            <td style="text-align: left;">SSID:</td>
+            <td><input id="ssid" type="string" maxlength="32" size="20" name="ssid"></td>
+        </tr>
+        <tr>
+            <td style="text-align: left;">Password:</td>
+            <td><input id="password" type="string" maxlength="64" size="20" name="password"></td>
+        </tr>
+    </table>
+    </div>
+    <p></p>
+    <div class="row" id="boxes">
+      <div class="center"><b>Default speed</b></div>
+      <table>
+        <tr>
+            <td style="text-align: left;">Steps/sec:</td>
+            <td><input id="speed" type="number" step="0.00000001" name="speed"></td>
+        </tr>
+    </table>
+    <br/>
+    <button type="button" id="restore">Restore default</button>
+    </div>
+    <p></p>
+    <div class="row" id="boxes">
+      <a href="http://tracker.local/"><button>Back</button></a>
+      <button type="button" id="save">Save</button>
+    </div>
+    <p></p>
+    <div class="row" id="boxes">
+      <div class="center"><b>Firmware updates</b></div>
+      <br/>
+      <table id="firmware">
+        <tr>
+          <td>Current Version:</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>New version:</td>
+          <td></td>
+        </tr>
+      </table>
+      <br/>
+      <button type="button" id="check">Check</button>
+      <button type="button" id="update" disabled="true">Update</button>
+      <button type="button" id="restart">Restart</button>
+    </div>
+    <script src="http://tracker.local/setup.js"></script>
+  </body>
+</html>
+
+
