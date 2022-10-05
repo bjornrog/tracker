@@ -1,5 +1,7 @@
 all: upload
 
+.PHONY: compile upload release
+
 SERIAL_PORT := /dev/cu.usbserial-0001
 FQBN := esp8266:esp8266:nodemcuv2
 BAUD_RATE := 115200
@@ -12,8 +14,6 @@ NEXT_VERSION := $(shell expr $(PREV_VERSION) + 1)
 #	./make.sh
 
 compile: tracker.ino
-	echo "#define VERSION $(NEXT_VERSION)" > version.h
-	echo "$(NEXT_VERSION)" > VERSION
 	arduino-cli compile --output-dir ./bin --fqbn $(FQBN) .
 
 upload: compile littlefs.bin
@@ -21,6 +21,15 @@ upload: compile littlefs.bin
 	esptool.py --chip ESP8266 --port $(SERIAL_PORT) --baud $(BAUD_RATE) write_flash -z 0x200000 littlefs.bin
 	arduino-cli monitor --port $(SERIAL_PORT) -c baudrate=115200
 
+release:
+	echo "#define VERSION $(NEXT_VERSION)" > version.h
+	echo "$(NEXT_VERSION)" > VERSION
+	make compile
+	make littlefs.bin
+	mkdir -p release
+	cp data/* release/
+	cp bin/* release/
+	cp littlefs.bin release/
 
 # https://github.com/espressif/esp-idf/blob/v4.3/components/spiffs/spiffsgen.py
 # https://docs.espressif.com/projects/esp-idf/en/v4.3/esp32/api-reference/storage/spiffs.html
