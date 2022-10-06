@@ -7,7 +7,7 @@
 #include <ArduinoOTA.h>
 #include <ArduinoJson.h>        // JSON encoding/decoding for the javascript interface
 #include <LittleFS.h>           // Filesystem containing html, js, css etc.
-#include <WiFiClient.h>         // Needed for HTTP Client
+#include <WiFiClientSecure.h>         // Needed for HTTP Client
 #include <EEPROM.h>             // USed for storing WiFi credentials, without storing them in the LittleFS
 
 
@@ -331,10 +331,14 @@ void get_restart() {
 // download updated firmware and filesystem.
 // Currently only checking dev host...
 void get_check(){
-  Serial.println("Get check for firmware update");
+  Serial.println("Get check for firmware update:");
 
-  String URL="http://192.168.10.51:8000/VERSION";
-  WiFiClient client;
+  String URL="https://raw.githubusercontent.com/bjornrog/tracker/main/VERSION";
+  
+  Serial.println(URL);
+
+  WiFiClientSecure client;
+  client.setInsecure();
 
   DynamicJsonDocument doc(512); 
 
@@ -346,6 +350,7 @@ void get_check(){
     payload.remove(payload.length()-1);
     doc["new_version"] = payload.toInt();
   } else {
+    Serial.printf("[HTTP] GET... failed, error: %s\n", http.errorToString(httpResponseCode).c_str());
     Serial.print("Error code: ");
     Serial.println(httpResponseCode);
     doc["new_version"] = "Error";
