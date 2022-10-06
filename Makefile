@@ -21,6 +21,9 @@ upload: compile littlefs.bin
 	esptool.py --chip ESP8266 --port $(SERIAL_PORT) --baud $(BAUD_RATE) write_flash -z 0x200000 littlefs.bin
 	arduino-cli monitor --port $(SERIAL_PORT) -c baudrate=115200
 
+monitor:
+	arduino-cli monitor --port $(SERIAL_PORT) -c baudrate=115200
+
 release:
 	echo "#define VERSION $(NEXT_VERSION)" > version.h
 	echo "$(NEXT_VERSION)" > VERSION
