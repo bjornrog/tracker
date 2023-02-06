@@ -38,6 +38,11 @@ The tracker currently seem to make it possible to take 60 second long expsures, 
 
 The intervalometer has only been tested with a Nikon D7100 camera.
 
+# Hardware
+
+This is a draft drawing, sismilar to my test hardware:
+
+![Schematic](/img/tracker.png)
 
 # Development
 
