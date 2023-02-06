@@ -2,6 +2,7 @@ var check=false;
 var status="STOPPED";
 let finishat = document.querySelector('.finish');
 let stat = document.querySelector('.status');
+let pic_stat = document.querySelector('.pictures');
 // let shutter = document.querySelector('.shutter');
 // let pics = document.querySelector('.pics');
 // let current = document.querySelector('.current');
@@ -149,6 +150,7 @@ function update() {
 	    document.getElementById("exptime").value = data.exptime;
 	    document.getElementById("waittime").value = data.waittime;
 	    document.getElementById("reps").value = data.pics;
+	    pic_stat.textContent = 'Pictures: ' + (Number(data.completed)+1).toString() + '/' + data.pics;
 	};
     });
     if (status != "RUNNING") {

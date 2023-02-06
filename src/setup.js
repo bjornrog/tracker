@@ -53,8 +53,18 @@ async function get_check() {
 	}
 }
 
-function update_fw() {
+async function update_fw() {
 	console.log('update...');
+	try {
+		const response = await fetch('http://tracker.local/update');
+		if (!response.ok) {
+			throw new Error('Error! status: '+response.status);
+		}
+		const result = await response.json();
+		return result;
+	} catch (err) {
+		console.log(err);
+	}
 }
 
 function restore() {

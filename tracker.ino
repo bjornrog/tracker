@@ -364,8 +364,20 @@ void get_check(){
   intwebserver.send(200, F("application/json"), buf);
 }
 
+int readStringFromEEPROM(int addrOffset, String *strToRead, int max);
+
+
+// void download(const String &URL, )
+
 void get_update() {
-  Serial.println("Serving update request");
+  Serial.println("Updating firmware...");
+
+  // Starting firmware update
+  // Start by getting the files to modify the littlefs
+
+  byte data[512];  // Maks file size!
+
+
 }
 
 void get_configpage(){

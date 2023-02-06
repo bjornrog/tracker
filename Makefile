@@ -31,6 +31,7 @@ release:
 	make littlefs.bin
 	mkdir -p release
 	cp data/* release/
+	ls -1 data/ > FILELIST
 	cp bin/* release/
 	cp littlefs.bin release/
 
